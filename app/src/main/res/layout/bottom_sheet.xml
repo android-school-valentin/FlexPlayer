@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/design_default_color_background"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="60dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <ProgressBar
+        android:id="@+id/peek_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="0dp"
+        android:max="100"
+        android:padding="0dp"
+        android:progress="10" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_sheet_peek"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/peek_album_image"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/self_destruct" />
+
+        <ImageButton
+            android:id="@+id/peek_play_control_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorAccent"
+            android:src="@drawable/ic_play_small" />
+
+        <TextView
+            android:id="@+id/peek_song_name"
+            android:textColor="@color/colorTextMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/peek_artist_name"
+            android:layout_toEndOf="@id/peek_album_image"
+            android:text="Name of the song"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/peek_artist_name"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/peek_album_image"
+            android:text="Song artist name"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_sheet_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/content_song_name"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorTextMain"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:text="Name of the song" />
+        <TextView
+            android:id="@+id/content_artist_name"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_song_name"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:text="Song artist name"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/content_song_length_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_artist_name"/>
+
+        <ImageButton
+            android:id="@+id/content_play_previous_button"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_song_length_slider"
+            android:layout_toStartOf="@+id/content_play_control_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorIcons"
+            android:src="@drawable/ic_previous_normal" />
+
+        <ImageButton
+            android:id="@+id/content_play_control_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@id/content_song_length_slider"
+            android:layout_centerHorizontal="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorIcons"
+            android:src="@drawable/ic_play_normal" />
+
+        <ImageButton
+            android:id="@+id/content_play_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@id/content_song_length_slider"
+            android:layout_toEndOf="@id/content_play_control_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorIcons"
+            android:src="@drawable/ic_next_normal" />
+    </RelativeLayout>
+
+</LinearLayout>
